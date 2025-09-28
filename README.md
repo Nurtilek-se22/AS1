@@ -30,11 +30,13 @@ Time vs n
 <img width="545" height="205" alt="Снимок экрана 2025-09-28 в 21 59 14" src="https://github.com/user-attachments/assets/e4c84ba2-6f7d-4e60-8b01-6ddea8b517d9" />
 
 <img width="1580" height="1180" alt="Algorithm Runtime (Time vs n)" src="https://github.com/user-attachments/assets/94dc196c-b714-4abf-8e0b-3e21a2fde740" />
-<img width="1580" height="1180" alt="Algorithm Recursion Depth vs n" src="https://github.com/user-attachments/assets/e4faac09-3182-40fc-bb7e-e61e2e4f2304" />
+<img width="1580" height="1180" alt="Algorithm Performance: Time vs n" src="https://github.com/user-attachments/assets/b59bf125-6fc9-4e99-a8f3-5a8c9f24c14a" />
+
 
 Depth vs n
-![Снимок экрана 2025-09-28 в 19.20.09.png](../../../../var/folders/ty/t05jbpn50wz77z0wtj62sjpw0000gn/T/TemporaryItems/NSIRD_screencaptureui_dVtpZz/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202025-09-28%20%D0%B2%2019.20.09.png)
-![Algorithm Recursion Depth vs n.png](../../Desktop/Algorithm%20Recursion%20Depth%20vs%20n.png)
+<img width="1580" height="1180" alt="Algorithm Recursion Depth vs n" src="https://github.com/user-attachments/assets/e4faac09-3182-40fc-bb7e-e61e2e4f2304" />
+<img width="500" height="262" alt="Снимок экрана 2025-09-28 в 22 44 22" src="https://github.com/user-attachments/assets/c1db31fa-7c25-4c3e-b80b-bca64a4d6c2f" />
+
 Discussion of Constant-Factor Effects
 
 Constant factors like cache misses affect MergeSort due to buffer copying, increasing time for large n. GC impacts QuickSort less as in-place, but randomized pivot adds variability. Select has high constants from MoM, but linear growth. Mismatch: Theory O(n) for Select, but practice shows higher constants than expected due to partition overhead.
