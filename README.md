@@ -1,25 +1,41 @@
-Report
+Report: Algorithm Performance and Complexity Analysis
 
 Architecture Notes
+	1.	MergeSort:
+	•	Recursion Depth: Controlled by a cut-off to insertion sort for small n (<=16), bounding the recursion depth to O(log n).
+	•	Allocations: Uses a reusable buffer for merging, avoiding repeated array creation and minimizing additional memory usage.
+	2.	QuickSort:
+	•	Recursion Depth: Depth is bounded to O(log n) by recursively working on the smaller partition and iterating over the larger one. Randomized pivots help ensure balanced partitioning and prevent stack overflow in the worst case.
+	•	Allocations: Minimal, as the algorithm works in-place, only swapping elements without creating additional arrays.
+	3.	DeterministicSelect:
+	•	Recursion Depth: Recursion is limited by partitioning and always recursing on the smaller side, resulting in a typical depth of O(log n).
+	•	Allocations: Memory allocations for medians arrays are O(n), controlled by recursion depth, but could be optimized further to reduce space complexity.
+	4.	ClosestPair:
+	•	Recursion Depth: Recursion is bounded to O(log n) by splitting the points into halves. The depth is determined by the logarithmic split of the points.
+	•	Allocations: Allocations for the strip array are O(n). The algorithm could benefit from optimizations to reduce extra memory usage.
 
-MergeSort: Recursion depth controlled by cut-off to insertion sort for small n (<=16), bounding depth to O(log n). Allocations limited to reusable buffer, avoiding repeated array creation.
-
-QuickSort: Depth bounded to O(log n) by re
-cursing on smaller partition and iterating larger one. Allocations minimal as in-place, with only swaps.
-
-DeterministicSelect: Depth bounded by preferring recursion on smaller side after partition, typically O(log n). Allocations for medians arrays are O(n) total but controlled via recursion.
-
-ClosestPair: Depth bounded to O(log n) by recursive split on halves. Allocations for strip array O(n), but no reusable buffer—can be optimized.
+⸻
 
 Recurrence Analysis
+	1.	MergeSort:
+	•	Recurrence: T(n) = 2T(n/2) + O(n) for the merge step.
+	•	Master Theorem (Case 2: a=2, b=2, f(n)=O(n), log_b(a)=1, f(n)=O(n^1)): Θ(n log n).
+	•	Intuition: MergeSort divides the problem into two equal subproblems, merging them takes linear time. The recurrence results in logarithmic depth with linear work at each level.
+	2.	QuickSort:
+	•	Average Recurrence: T(n) = 2T(n/2) + O(n) for partitioning.
+	•	Master Theorem (Case 2): Θ(n log n) in the average case.
+	•	Worst-Case: T(n) = T(n-1) + O(n) = Θ(n²) if a bad pivot is chosen.
+	•	Intuition: QuickSort works by partitioning the array around a pivot. Randomizing the pivot helps ensure a balanced partition, limiting depth to O(log n) and reducing the risk of worst-case performance.
+	3.	DeterministicSelect:
+	•	Recurrence: T(n) = T(n/5) + T(7n/10) + O(n) for the Median of Medians (MoM) and partitioning.
+	•	Akra-Bazzi Method: The solution to this recurrence gives Θ(n) for worst-case selection.
+	•	Intuition: MoM guarantees that the pivot is always within the 30-70% percentile, which ensures that the work done at each level is linear, with constant reductions in size at each step.
+	4.	ClosestPair:
+	•	Recurrence: T(n) = 2T(n/2) + O(n) for the strip check.
+	•	Master Theorem (Case 2): Θ(n log n).
+	•	Intuition: ClosestPair divides the points into two halves and recursively finds the closest pair in each half. The merge step involves a linear scan for the strip, resulting in a logarithmic depth with linear work at each level.
 
-MergeSort: The recurrence is T(n) = 2T(n/2) + O(n) for the merge step. Using Master Theorem (Case 2: a=2, b=2, f(n)=O(n), log_b(a)=1, f(n)=O(n^1)), since f(n) = Θ(n^log_b(a)), it gives Θ(n log n). Intuition: Balanced division doubles subproblems but merge is linear, leading to logarithmic depth and linear work per level.
-
-QuickSort: Average recurrence T(n) = 2T(n/2) + O(n) for partition. Master Theorem (Case 2) gives Θ(n log n) in average case, but worst-case T(n) = T(n-1) + O(n) = Θ(n^2) if pivot is bad. Randomized pivot makes worst-case unlikely. Intuition: Good pivots balance division, bounding depth to O(log n); iteration on larger side controls stack.
-
-Deterministic Select: Recurrence T(n) = T(n/5) + T(7n/10) + O(n) for MoM and partition. Akra-Bazzi applies (a1=1, b1=1/5, a2=1, b2=7/10, g(n)=n, p=1, β≈0.794 <1), giving Θ(n). Master Theorem doesn't fit due to uneven split. Intuition: MoM guarantees pivot in 30-70% percentile, ensuring linear work and constant fraction reduction.
-
-Closest Pair: Recurrence T(n) = 2T(n/2) + O(n) for strip check. Master Theorem (Case 2) gives Θ(n log n). Intuition: Balanced split like MergeSort, with linear strip scan, logarithmic depth.
+⸻
 
 Plots and Discussion
 
@@ -38,9 +54,13 @@ Depth vs n
 <img width="500" height="262" alt="Снимок экрана 2025-09-28 в 22 44 22" src="https://github.com/user-attachments/assets/c1db31fa-7c25-4c3e-b80b-bca64a4d6c2f" />
 
 Discussion of Constant-Factor Effects
+	•	MergeSort has a higher constant factor due to the need for buffer allocations, which increases the time for larger input sizes, especially when dealing with large arrays.
+	•	QuickSort shows less impact from constant factors but can experience variability in performance due to the randomness of the pivot, which affects cache usage and memory access patterns.
+	•	DeterministicSelect performs well in theory (O(n)) but suffers from a higher constant factor due to the MoM pivoting strategy, which introduces overhead in selecting the pivot.
+	•	ClosestPair requires additional memory allocations for the strip array, which increases its complexity in practice compared to the theoretical O(n log n) complexity.
 
-Constant factors like cache misses affect MergeSort due to buffer copying, increasing time for large n. GC impacts QuickSort less as in-place, but randomized pivot adds variability. Select has high constants from MoM, but linear growth. Mismatch: Theory O(n) for Select, but practice shows higher constants than expected due to partition overhead.
+⸻
 
 Summary: Alignment/Mismatch Between Theory and Measurements
 
-Theoretical complexities (MergeSort Θ(n log n), QuickSort Θ(n log n), Select Θ(n), ClosestPair Θ(n log n)) align with measured trends from benchmarks, showing logarithmic or linear growth. However, constant factors (e.g., MergeSort's buffer overhead, QuickSort's pivot variability) cause practical times to deviate, especially for small n. Select's linear theory holds, but overhead from medians calculation increases constants. Overall, measurements confirm theoretical bounds but highlight practical optimizations needed.
+The theoretical complexities of MergeSort (Θ(n log n)), QuickSort (Θ(n log n)), DeterministicSelect (Θ(n)), and ClosestPair (Θ(n log n)) generally align with the measured trends from benchmarks. However, constant factors such as MergeSort’s buffer allocation, QuickSort’s randomized pivot variability, and DeterministicSelect’s MoM overhead cause the practical execution times to deviate from their theoretical bounds, especially for small n. ClosestPair has the largest practical overhead, especially as the size of the dataset grows.
