@@ -27,9 +27,11 @@ Output
 <img width="896" height="433" alt="Снимок экрана 2025-09-28 в 20 10 31" src="https://github.com/user-attachments/assets/9516ad1e-da00-434a-b030-6dabd3d2a0ff" />
 
 Time vs n
-![Снимок экрана 2025-09-28 в 19.12.56.png](../../../../var/folders/ty/t05jbpn50wz77z0wtj62sjpw0000gn/T/TemporaryItems/NSIRD_screencaptureui_mTH6Wv/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202025-09-28%20%D0%B2%2019.12.56.png)
-![Algorithm Performance: Time vs n.png](../../Desktop/Algorithm%20Performance%3A%20Time%20vs%20n.png)![Algorithm Runtime (Time vs n).png](../../Desktop/Algorithm%20Runtime%20%28Time%20vs%20n%29.png)
-![Algorithm Runtime (Time vs n).png](../../Desktop/Algorithm%20Runtime%20%28Time%20vs%20n%29.png)
+<img width="545" height="205" alt="Снимок экрана 2025-09-28 в 21 59 14" src="https://github.com/user-attachments/assets/e4c84ba2-6f7d-4e60-8b01-6ddea8b517d9" />
+
+<img width="1580" height="1180" alt="Algorithm Runtime (Time vs n)" src="https://github.com/user-attachments/assets/94dc196c-b714-4abf-8e0b-3e21a2fde740" />
+<img width="1580" height="1180" alt="Algorithm Recursion Depth vs n" src="https://github.com/user-attachments/assets/e4faac09-3182-40fc-bb7e-e61e2e4f2304" />
+
 Depth vs n
 ![Снимок экрана 2025-09-28 в 19.20.09.png](../../../../var/folders/ty/t05jbpn50wz77z0wtj62sjpw0000gn/T/TemporaryItems/NSIRD_screencaptureui_dVtpZz/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202025-09-28%20%D0%B2%2019.20.09.png)
 ![Algorithm Recursion Depth vs n.png](../../Desktop/Algorithm%20Recursion%20Depth%20vs%20n.png)
