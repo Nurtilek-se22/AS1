@@ -1,0 +1,17 @@
+n,time_ns,depth,comparisons,allocations,algorithm
+100,109833,4,639,1,MergeSort
+100,54958,3,749,0,QuickSort
+100,106042,5,821,10,DeterministicSelect
+100,1301750,7,122,36,ClosestPair
+1000,598500,7,10389,1,MergeSort
+1000,697334,5,12823,0,QuickSort
+1000,593291,7,8463,35,DeterministicSelect
+1000,2184209,10,1126,488,ClosestPair
+5000,3526208,10,59020,1,MergeSort
+5000,1985709,7,69872,0,QuickSort
+5000,6406208,7,46186,104,DeterministicSelect
+5000,7237958,12,6422,2048,ClosestPair
+10000,1777250,11,128274,1,MergeSort
+10000,1829625,7,162776,0,QuickSort
+10000,1299541,9,89901,165,DeterministicSelect
+10000,6785167,13,12918,4096,ClosestPair
