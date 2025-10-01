@@ -36,9 +36,14 @@ class MetricsTrackerTest {
 
     @Test
     void testCounters() {
-        tracker.incrementComparison();
-        tracker.incrementComparison();
-        tracker.incrementAllocation();
+        // Increment comparison counter twice using correct method names
+        tracker.incComparison();
+        tracker.incComparison();
+
+        // Increment allocation counter once
+        tracker.incAllocation();
+
+        // Assert the expected counts
         assertEquals(2, tracker.getComparisons(), "Comparisons count should be 2");
         assertEquals(1, tracker.getAllocations(), "Allocations count should be 1");
     }
@@ -64,25 +69,27 @@ class MetricsTrackerTest {
         tracker.stop();
         tracker.writeToCSV(csvPath.toString(), 100, "Algorithm");
 
-        // Check that file is created
         assertTrue(Files.exists(csvPath), "CSV file should be created");
 
+        // Print the contents of the CSV for debugging
         List<String> lines = Files.readAllLines(csvPath);
+        for (String line : lines) {
+            System.out.println("CSV Line: " + line);
+        }
+
         assertEquals(2, lines.size(), "CSV should contain header and one data line");
 
-        // Check header (first line)
         String header = lines.get(0);
         assertEquals("n,time_ns,depth,comparisons,allocations,algorithm", header.trim());
 
-        // Check data (second line)
         String dataLine = lines.get(1);
         String[] parts = dataLine.split(",");
-        assertEquals("100", parts[0].trim()); // n
-        assertTrue(Long.parseLong(parts[1].trim()) > 0, "Time should be positive"); // time
-        assertEquals("1", parts[2].trim()); // depth
-        assertEquals("1", parts[3].trim()); // comparisons
-        assertEquals("0", parts[4].trim()); // allocations
-        assertEquals("Algorithm", parts[5].trim()); // algorithm
+        assertEquals("100", parts[0].trim());
+        assertTrue(Long.parseLong(parts[1].trim()) > 0, "Time should be positive");
+        assertEquals("1", parts[2].trim());
+        assertEquals("1", parts[3].trim());
+        assertEquals("0", parts[4].trim());
+        assertEquals("Algorithm", parts[5].trim());
     }
 
     @Test

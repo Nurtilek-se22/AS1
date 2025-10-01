@@ -85,10 +85,8 @@ public class MetricsTracker {
         endTime = 0;
     }
 
+
     public void incrementComparison() {
-    }
-
-
-    public void incrementAllocation() {
+        comparisons++;
     }
 }
