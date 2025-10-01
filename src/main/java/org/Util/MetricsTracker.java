@@ -84,4 +84,11 @@ public class MetricsTracker {
         startTime = 0;
         endTime = 0;
     }
+
+    public void incrementComparison() {
+    }
+
+
+    public void incrementAllocation() {
+    }
 }

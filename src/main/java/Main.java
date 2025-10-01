@@ -1,5 +1,4 @@
 
-
 import Closest.ClosestPair;
 import Closest.ClosestPair.Point;
 import Select.DeterministicSelect;

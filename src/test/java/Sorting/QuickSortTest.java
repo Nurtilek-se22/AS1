@@ -1,6 +1,6 @@
-package com.example.algorithms.sorting;
+package Sorting;
 
-import com.example.algorithms.util.MetricsTracker;
+import org.Util.MetricsTracker;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

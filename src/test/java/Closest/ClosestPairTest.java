@@ -1,4 +1,4 @@
-package com.example.algorithms.closest;
+package Closest;
 
 import Closest.ClosestPair;
 import org.Util.MetricsTracker;
